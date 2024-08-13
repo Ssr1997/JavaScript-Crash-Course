@@ -26,7 +26,7 @@ console.log(typeof(bigNumber));
 // Non - Primitive DataTypes
 // Arrays , Objects , Functions
 
-const pornstars = ["Mia Malkova" , "Dani Daniels" , "Ava Addams"] // Array Declaration
+const pornstars = ["Mia Malkova" , "Dani Daniels" , "Ava Addams"]; // Array Declaration
 let myObj = {
     name : "Shivam",
     age : 27
