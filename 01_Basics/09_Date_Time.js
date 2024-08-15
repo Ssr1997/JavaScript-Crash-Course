@@ -7,10 +7,12 @@ console.log(myDate.toDateString());
 console.log(myDate.toLocaleDateString());
 console.log(myDate.toLocaleTimeString());
 console.log(myDate.toISOString());
+
 console.log(myDate.toLocaleString('default',{
     weekday : "long",
     month : "short"
 }));
+
 console.log(myDate.toString());
 console.log(myDate.toUTCString());
 
