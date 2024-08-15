@@ -18,4 +18,5 @@ console.log(accountId); // console.log() is a function used to print output/mess
 
 // Prefer not to use Var becoz of issue in block scope and functional scope.
 
-console.table([accountId,accountEmail,accountPassword,accountCity,accountState]) //console.table([group of variables to show in tabular form]).
+console.table([accountId,accountEmail,accountPassword,accountCity,accountState]) 
+//console.table([group of variables to show in tabular form]).
