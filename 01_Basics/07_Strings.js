@@ -6,8 +6,9 @@ const repoCount = 1
  */
 console.log(`Hello my name is ${name} & my repository count is ${repoCount}`); // String Interpolation
 
-/* new String("Shivam/Neha"): This creates a String object with the value "Shivam/Neha". 
-Unlike a primitive string (e.g., "Shivam/Neha"), a String object has additional methods and properties.
+/* new String(): This syntax creates a new String object instead of a primitive string "Shivam/Neha".
+   new String("Shivam/Neha") creates a String object wrapper around that primitive value.
+   A String object, new String("Shivam/Neha"), which is non-primitive, has additional methods and properties.
 */
 const string1 = new String("Shivam/Neha")
 
