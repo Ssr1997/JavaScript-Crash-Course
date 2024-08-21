@@ -1,7 +1,16 @@
-const accountId = 75462 // const is a keyword used to declare a varibale that is constant.
+const accountId = 75462 // const: Cannot be re-declared or updated in the same scope. Once assigned, the value cannot be changed.
 
-let accountEmail = "shivamsrawat@gmail.com" // let = can be re-assigned a value but can't be declared again (block scope {are only accessible within the block}).
+/*
+    let : Block-scoped. Accessible only within the block (like inside a loop or an if statement) where they are defined. 
+          Cannot be re-declared in the same scope, but can be updated.
+*/
+let accountEmail = "shivamsrawat@gmail.com" 
 
+
+/*
+    var: Function-scoped. Accessible within the entire function or globally if declared outside a function.
+          Can be re-declared and updated within the same scope.
+*/
 var accountPassword = "123456"  // var = it can be re-assigned a value and it can also be declared again  (Global scoped).
 
 accountCity = "New Delhi"
