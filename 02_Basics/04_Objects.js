@@ -50,5 +50,21 @@ const users = [
 // Access the email property of the second user object in the users array
 console.log(users[1].email);
 
+// Object Destructuring  
 
+const course = {
+    coursename : "JS",
+    price: "999",
+    courseInstructor : "NEHA ARORA",
+    courseMentor : "NEHA MRIG"
+}
+
+
+// Use object destructuring to extract the `courseInstructor` property from the `course` object
+const {courseInstructor:instructor} = course // Rename `courseInstructor` to `instructor` during destructuring
+
+// Use object destructuring to extract the `courseMentor` property from the `course` object
+const {courseMentor} = course
+
+console.log(instructor,courseMentor);
 
