@@ -1,0 +1,40 @@
+<!DOCTYPE html>  <!-- Declares the document as an HTML5 document -->
+<html lang="en">  <!-- Specifies the language of the document as English -->
+<head>
+    <meta charset="UTF-8">  <!-- Specifies the character encoding for the page as UTF-8, which supports many characters -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- Ensures the page is displayed using the latest version of Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ensures the page scales correctly on mobile devices -->
+    <title>Chai aur code</title>  <!-- Sets the title of the webpage (what appears in the browser tab) -->
+</head>
+<body style="background-color: #212121; color: #fff;">  <!-- Sets the body background color to dark and text color to white -->
+</body>
+<script>
+    // JavaScript begins here
+
+    // 1. Create a new <div> element dynamically using JavaScript
+    const div = document.createElement('div');
+    console.log(div);  // Logs the newly created <div> element to the console. Initially, it's an empty <div>.
+
+    // 2. Set the class name of the new <div> to "main"
+    div.className = "main";  // Adds a class 'main' to the div element
+
+    // 3. Set a random ID for the div element using a random number generator
+    div.id = Math.round(Math.random() * 10 + 1);  // Sets the ID of the div to a random number between 1 and 10 (e.g., 7)
+
+    // 4. Set an attribute called 'title' with the value "generated title" for the div
+    div.setAttribute("title", "generated title");  // Adds a title attribute to the div, which will be shown as a tooltip when hovered over
+
+    // 5. Style the div element
+    div.style.backgroundColor = "green";  // Sets the background color of the div to green
+    div.style.padding = "12px";  // Adds padding of 12 pixels to the div, creating space inside the div
+
+    // 6. Create a text node containing the text "Chai aur code"
+    const addText = document.createTextNode("Chai aur code");  // Creates a text node that contains the text "Chai aur code"
+
+    // 7. Append the text node to the div
+    div.appendChild(addText);  // Appends the created text node to the div, making it visible inside the div
+
+    // 8. Finally, append the newly created <div> to the body of the document
+    document.body.appendChild(div);  // Appends the div (with its text) to the body of the HTML document, so it appears on the page
+</script>
+</html>
