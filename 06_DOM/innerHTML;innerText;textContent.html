@@ -1,0 +1,103 @@
+In the context of the DOM, innerHTML, innerText, and textContent are three properties that allow you to get or set the content of an HTML element. While they may seem similar, they serve different purposes and behave differently. Here’s a detailed comparison:
+
+1. innerHTML
+
+Purpose: Retrieves or sets the HTML content inside an element.
+Behavior: It treats the content as HTML, so it can include tags (like <p>, <strong>, <a>, etc.).
+
+Use Case: Use innerHTML when you need to work with HTML content (e.g., inserting or manipulating HTML elements like links or images).
+Example:
+
+<div id="container">
+  <p>This is a <strong>paragraph</strong>.</p>
+</div>
+
+let content = document.getElementById('container').innerHTML;
+console.log(content); 
+// Output: <p>This is a <strong>paragraph</strong>.</p>
+
+Setting HTML:
+
+document.getElementById('container').innerHTML = '<p>This is <em>new</em> content</p>';
+
+Important Note: When you use innerHTML to set content, any existing child elements of the target element will be replaced by the new content.
+
+2. innerText
+
+Purpose: Retrieves or sets the text content of an element, but it renders the content as plain text (not HTML).
+Behavior: It reflects the visible, rendered text as seen by the user, which means it respects:
+CSS styling, such as hidden text (display: none or visibility: hidden).
+Line breaks or white spaces caused by CSS (text-align, word-wrap, etc.).
+
+Use Case: Use innerText when you need to get or set only the visible text and not HTML tags.
+Example:
+
+
+<div id="container">
+  <p>This is a <strong>paragraph</strong>.</p>
+</div>
+
+let content = document.getElementById('container').innerText;
+console.log(content); 
+// Output: This is a paragraph.
+
+Setting Text:
+
+document.getElementById('container').innerText = 'This is some new text';
+
+Important Note:
+
+innerText can trigger reflow in the browser because it deals with visible layout and can cause the page to adjust.
+Performance: It can be slower than textContent because of the extra CSS rendering steps it may involve.
+
+3. textContent
+Purpose: Retrieves or sets the text content of an element, including hidden text (even if it's not visible due to CSS).
+Behavior: It returns all the text content as plain text, without any HTML tags. It doesn’t respect CSS styling and does not trigger layout adjustments.
+
+Use Case: Use textContent when you want to work with the raw text inside an element, regardless of its styling or visibility.
+Example:
+
+<div id="container">
+  <p>This is a <strong>paragraph</strong>.</p>
+</div>
+
+let content = document.getElementById('container').textContent;
+console.log(content); 
+// Output: This is a paragraph.
+
+Setting Text:
+
+document.getElementById('container').textContent = 'This is some new text';
+
+Important Note:
+
+Hidden Text: textContent will include text even if it's hidden (like within display: none elements).
+Performance: textContent is usually faster than innerText because it does not trigger layout reflow or deal with CSS styles.
+
+
+Key Differences:
+
+Feature	                            innerHTML	                                            innerText	                                                           textContent
+
+What it handles	            HTML content (can include tags)	                    Plain text content (visible text only)	                     Plain text content (includes all text, even hidden)
+
+Gets HTML or text?	         Returns HTML (tags included)	                       Returns visible text (ignores hidden content)	              Returns all text, including hidden content
+
+Can you set HTML?	    Yes, allows setting HTML (tags will be parsed)	              No, sets only plain text	                                      No, sets only plain text
+
+Performance	                 Slower(due to HTML parsing)	                         Slower (due to CSS rendering)	                                 Faster (no CSS rendering needed)
+
+CSS Style Impact	    Does not consider CSS styling (like visibility)	        Considers visible text, ignores hidden content	               Ignores CSS styling (hidden content included)
+
+Use Cases	            Inserting HTML or modifying elements with HTML	      Getting or setting visible text, ignoring hidden content	     Getting or setting raw text, regardless of visibility
+
+
+Summary:
+
+innerHTML: Use when you need to get or set HTML content (including tags) within an element.
+
+innerText: Use when you want to get or set visible text that’s rendered on the page (ignores hidden content).
+
+textContent: Use when you need to get or set all text, regardless of visibility, and you don’t care about HTML tags.
+
+Understanding these differences helps you choose the right property depending on whether you're dealing with plain text or HTML content, and whether or not you care about styling or hidden elements.
