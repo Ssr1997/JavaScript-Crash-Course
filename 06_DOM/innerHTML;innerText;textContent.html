@@ -83,11 +83,11 @@ What it handles	            HTML content (can include tags)	                    
 
 Gets HTML or text?	    Returns HTML (tags included)	                         Returns visible text (ignores hidden content)	                      Returns all text, including hidden content
 
-Can you set HTML?	    Yes, allows setting HTML (tags will be parsed)	         No, sets only plain text	                                       No, sets only plain text
+Can you set HTML?	    Yes, allows setting HTML (tags will be parsed)	         No, sets only plain text	                                      No, sets only plain text
 
-Performance	            Slower(due to HTML parsing)	                                 Slower (due to CSS rendering)	                                     Faster (no CSS rendering needed)
+Performance	            Slower(due to HTML parsing)	                                 Slower (due to CSS rendering)	                                      Faster (no CSS rendering needed)
 
-CSS Style Impact	    Does not consider CSS styling (like visibility)	         Considers visible text, ignores hidden content	                     Ignores CSS styling (hidden content included)
+CSS Style Impact	    Does not consider CSS styling (like visibility)	         Considers visible text, ignores hidden content	                      Ignores CSS styling (hidden content included)
 
 Use Cases	            Inserting HTML or modifying elements with HTML	         Getting or setting visible text, ignoring hidden content	      Getting or setting raw text, regardless of visibility
 
