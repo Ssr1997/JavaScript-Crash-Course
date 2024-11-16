@@ -1,0 +1,58 @@
+<!DOCTYPE html>  <!-- Declares the document type as HTML5 -->
+<html lang="en">  <!-- Specifies the document language as English -->
+<head>
+    <meta charset="UTF-8">  <!-- Specifies the character encoding as UTF-8, ensuring support for a wide range of characters -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- Ensures the page uses the latest version of Internet Explorer for rendering -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Makes the page responsive, adapting to different screen sizes (especially on mobile) -->
+    <title>Chai aur code | DOM</title>  <!-- Sets the title of the webpage as seen in the browser tab -->
+</head>
+<body style="background-color: #212121; color: #fff;">  <!-- Applies a dark background color and white text color to the body of the page -->
+    <ul class="language">  <!-- Creates an unordered list with the class 'language' -->
+        <li>Javascript</li>  <!-- List item containing the text 'Javascript' -->
+    </ul>
+</body>
+
+<script>
+    // 1. Function to add a new programming language to the list
+    function addLanguage(langName){
+        const li = document.createElement('li');  // Creates a new <li> element
+        li.innerHTML = `${langName}`;  // Sets the inner HTML of the <li> element to the passed language name
+        document.querySelector('.language').appendChild(li);  // Appends the new <li> to the existing <ul> with class 'language'
+    }
+
+    // Adds "python" and "typescript" to the list by calling the addLanguage function
+    addLanguage("python");
+    addLanguage("typescript");
+
+    // 2. Another function to add a language, but using a text node instead of innerHTML
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');  // Creates a new <li> element
+        li.appendChild(document.createTextNode(langName));  // Creates a text node with the language name and appends it to the <li>
+        document.querySelector('.language').appendChild(li);  // Appends the new <li> to the <ul> with class 'language'
+    }
+
+    // Adds "golang" to the list using the addOptiLanguage function
+    addOptiLanguage('golang');
+
+    // 3. Editing the second language in the list (which is now 'typescript' after adding 'python' and 'typescript')
+    const secondLang = document.querySelector("li:nth-child(2)");  // Selects the second <li> element (i.e., 'typescript')
+    console.log(secondLang);  // Logs the second <li> element ('typescript') to the console
+
+    // This part is commented out. If it were uncommented, it would change the inner HTML of the second list item to "Mojo".
+    // secondLang.innerHTML = "Mojo";
+
+    // Instead of changing the innerHTML, a new <li> is created and replaces the second list item
+    const newli = document.createElement('li');  // Creates a new <li> element
+    newli.textContent = "Mojo";  // Sets the text content of the new <li> to "Mojo"
+    secondLang.replaceWith(newli);  // Replaces the second <li> ('typescript') with the new <li> ("Mojo")
+
+    // 4. Editing the first language in the list (which is now 'javascript')
+    const firstLang = document.querySelector("li:first-child");  // Selects the first <li> element (i.e., 'javascript')
+    firstLang.outerHTML = '<li>TypeScript</li>';  // Replaces the entire <li> element with a new <li> containing "TypeScript"
+
+    // 5. Removing the last language from the list
+    const lastLang = document.querySelector('li:last-child');  // Selects the last <li> element in the list (which is "golang")
+    lastLang.remove();  // Removes the last <li> element ("golang") from the list
+</script>
+
+</html>
