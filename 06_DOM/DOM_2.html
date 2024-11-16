@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ensures proper scaling on mobile devices -->
     <title>DOM | Chai aur code</title>  <!-- Sets the title of the webpage as seen in the browser tab -->
 </head>
+
 <body style="background-color: #212121; color: #fff;">  <!-- Applies a dark background color and white text to the body of the page -->
     <div class="parent">  <!-- This div has the class 'parent' which is used for DOM manipulation -->
         <!-- this is a comment -->
@@ -16,34 +17,36 @@
         <div class="day">Thursday</div>  <!-- A div with class 'day' containing the text 'Thursday' -->
     </div>
 </body>
+
 <script>
     // This part of the code runs when the HTML page has loaded
     const parent = document.querySelector('.parent');  // Selects the first element with the class 'parent'
 
-    // These lines are commented out. If they were active, they would log different parts of the DOM to the console.
-    // console.log(parent);  // Logs the 'parent' div element to the console
-    // console.log(parent.children);  // Logs the collection of child elements (the 'day' divs) of the 'parent' div
-    // console.log(parent.children[1].innerHTML);  // Logs the inner HTML of the second child (Tuesday)
+
+    console.log(parent);  // Logs the 'parent' div element to the console
+    console.log(parent.children);  // Logs the collection of child elements (the 'day' divs) of the 'parent' div
+    console.log(parent.children[1].innerHTML);  // Logs the inner HTML of the second child (Tuesday)
 
     // Looping through all child elements of the 'parent' div and logging their inner HTML
-    // for (let i = 0; i < parent.children.length; i++) {
-    //     console.log(parent.children[i].innerHTML);  // Logs the inner HTML of each 'day' div
-    // }
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML);  // Logs the inner HTML of each 'day' div
+    }
 
     // This changes the color of the second child element (Tuesday) to orange
     parent.children[1].style.color = "orange";  // Targets the second child (Tuesday) and changes its text color to orange
 
-    // These lines are also commented out. If they were active, they would log the first and last child elements of the parent div.
-    // console.log(parent.firstElementChild);  // Logs the first child element (Monday)
-    // console.log(parent.lastElementChild);  // Logs the last child element (Thursday)
+    console.log(parent.firstElementChild);  // Logs the first child element (Monday)
+    console.log(parent.lastElementChild);  // Logs the last child element (Thursday)
 
-    // Selects the first element with the class 'day' (which is Monday)
-    const dayOne = document.querySelector('.day');
-    // console.log(dayOne);  // Logs the first 'day' div (Monday)
-    // console.log(dayOne.parentElement);  // Logs the parent element of 'dayOne' (the 'parent' div)
-    // console.log(dayOne.nextElementSibling);  // Logs the next sibling element of 'dayOne' (Tuesday)
+  
+    const dayOne = document.querySelector('.day');   // Selects the first element with the class 'day' (which is Monday)
+
+    console.log(dayOne);  // Logs the first 'day' div (Monday)
+    console.log(dayOne.parentElement);  // Logs the parent element of 'dayOne' (the 'parent' div)
+    console.log(dayOne.nextElementSibling);  // Logs the next sibling element of 'dayOne' (Tuesday)
 
     // Logs the child nodes of the 'parent' div to the console
     console.log("NODES: ", parent.childNodes);  // Logs all child nodes, including text nodes and element nodes
+
 </script>
 </html>
