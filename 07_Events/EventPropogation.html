@@ -1,0 +1,82 @@
+Event propagation in JavaScript refers to the sequence in which an event moves through the Document Object Model (DOM) tree when an action, such as a user click, occurs. This process determines the order in which event handlers are executed on nested elements. Understanding event propagation is essential for effective event management in web development.
+
+Phases of Event Propagation
+
+Event propagation consists of three main phases:
+
+Capturing Phase (Event Capturing): The event starts from the root of the DOM tree and travels down to the target element.
+During this phase, event listeners set with the capture option as true are executed. 
+
+Target Phase: The event reaches the target element—the element that triggered the event. 
+Event listeners on the target element are executed during this phase, regardless of the capture parameter. 
+
+Bubbling Phase (Event Bubbling): After reaching the target, the event propagates back up the DOM tree to the root.
+Event listeners set with the capture option as false (or omitted) are executed during this phase. 
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Propagation Example</title>
+  <style>
+    .outer {
+      padding: 20px;
+      border: 2px solid blue;
+    }
+    .inner {
+      padding: 20px;
+      border: 2px solid green;
+    }
+    .target {
+      padding: 20px;
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    Outer Div
+    <div class="inner">
+      Inner Div
+      <button class="target">Click Me</button>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.outer').addEventListener('click', function(event) {
+      console.log('Outer DIV Clicked');
+    }, false); // Bubbling phase
+
+    document.querySelector('.inner').addEventListener('click', function(event) {
+      console.log('Inner DIV Clicked');
+    }, true); // Capturing phase
+
+    document.querySelector('.target').addEventListener('click', function(event) {
+      console.log('Button Clicked');
+    });
+  </script>
+</body>
+</html>
+
+In this example:
+
+Clicking the button will trigger three event listeners:
+
+The inner div listener during the capturing phase.
+The target button listener during the target phase.
+The outer div listener during the bubbling phase.
+
+Controlling Event Propagation :
+
+To manage event propagation, JavaScript provides methods such as stopPropagation() and stopImmediatePropagation().
+
+event.stopPropagation(): Stops the event from propagating further in the capturing and bubbling phases. 
+
+
+event.stopImmediatePropagation(): Stops the event from propagating and prevents any remaining event listeners on the current target from being executed. 
+
+
+Practical Application: Event Delegation
+
+Event delegation leverages event propagation by allowing a single event listener on a parent element to manage events for multiple child elements. 
+This approach enhances performance and simplifies code management. 
