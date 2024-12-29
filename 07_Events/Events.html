@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <!-- List item containing an image with id 'photoshop' -->
+            <li>
+                <img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop">
+            </li>
+            <!-- List item containing an image with id 'japan' -->
+            <li>
+                <img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <!-- List item containing an image with id 'river' -->
+            <li>
+                <img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <!-- List item containing an image with id 'owl' -->
+            <li>
+                <img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <!-- List item containing an image with id 'prayer' -->
+            <li>
+                <img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="">
+            </li>
+            <!-- List item containing a link to Google with id 'google' -->
+            <li>
+                <a style="color: aliceblue;" href="https://google.com" id="google">Google</a>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+
+    // Outdated method of assigning an event handler directly to the 'onclick' property
+    document.getElementById('owl').onclick = function() {
+        alert("owl clicked");
+    };
+
+        // Adding an event listener to the 'images' div
+
+        // Event Capturing
+        document.getElementById('images').addEventListener('click', function(e) {
+            console.log("Clicked inside the 'images' div");
+        }, true); // 'true' indicates event capturing phase
+        // The 'images' div is the parent container of the 'owl' image.
+
+        // Adding an event listener to the 'owl' image
+
+        // Even Bubbling
+        document.getElementById('owl').addEventListener('click', function(e) {
+            console.log("Owl image clicked");
+            e.stopPropagation(); // Prevents the event from propagating further
+        }, false); // 'false' indicates event bubbling phase
+        // The 'owl' image is a child element of the 'images' div.
+
+
+    // Adding an event listener to the 'a' element with id 'google'
+    document.getElementById('google').addEventListener('click', function(e) {
+        e.preventDefault();         // 'e.preventDefault()' prevents the default action (navigation) from occurring
+        
+        e.stopPropagation();        // 'e.stopPropagation()' prevents the event from bubbling up to parent elements
+        console.log("google clicked");
+    }, false);
+
+
+    // This function checks if the clicked target is an 'IMG' element
+    
+    document.querySelector('#images').addEventListener('click', function(e) {
+        console.log(e.target.tagName);
+
+        // If true, it removes the parent 'li' element from the DOM
+
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+    });
+
+    // This line attempts to remove 'removeIt' from its parent node
+    // However, 'removeIt' is not defined in this scope, leading to an error
+    removeIt.parentNode.removeChild(removeIt);
+</script>
+</html>
